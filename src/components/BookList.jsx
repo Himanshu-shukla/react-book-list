@@ -1,7 +1,9 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './booklist.css';
 
-const BookList = ({ books, setBooks, sortValue }) => {
+
+const BookList = ({ books, setBooks, sortValue, filterValue }) => {
   const [editedBook, setEditedBook] = useState(null);
   const [sortedBooks, setSortedBooks] = useState([]);
 
@@ -47,17 +49,25 @@ const BookList = ({ books, setBooks, sortValue }) => {
   };
 
   useEffect(() => {
+
+    const filtered = books.filter(book =>
+      filterValue && book.title ? 
+      book.title.toLowerCase().includes(filterValue.toLowerCase()) : 
+      true
+    );
+
+    
     // Sort the books based on the selected sorting option (title or author)
-    const sorted = [...books].sort((a, b) => {
+    const sorted = [...filtered].sort((a, b) => {
       if (sortValue === 'title') {
         return (a.title || '').localeCompare(b.title || '');
       } else if (sortValue === 'author') {
         return (a.author || '').localeCompare(b.author || '');
-      }
+      } 
       return 0;
     });
     setSortedBooks(sorted);
-  }, [books, sortValue]);
+  }, [books, sortValue, filterValue]);
 
 
 

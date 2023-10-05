@@ -1,0 +1,26 @@
+/* styles.css (or styles.module.css if you are using CSS Modules) */
+.sort {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .sort label {
+    margin-right: 10px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .sort select {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+  }
+  
+  /* Optional: Add styles for input on focus */
+  .sort select:focus {
+    border-color: #4caf50; /* Change the border color on focus */
+  }
+  

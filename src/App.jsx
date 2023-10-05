@@ -81,7 +81,7 @@ const App = () => {
           </div>
           <Filter filters={filters} onFilterChange={handleFilterChange} />
           <Sort sortValue={sortValue} onSortChange={setSortValue} />
-          <BookList books={books} setBooks={setBooks} sortValue={sortValue}/>
+          <BookList books={books} setBooks={setBooks} sortValue={sortValue} filterValue={filters} />
           <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
         </div>
       </div>
