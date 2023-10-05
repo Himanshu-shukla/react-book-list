@@ -50,14 +50,15 @@ const BookList = ({ books, setBooks, sortValue }) => {
     // Sort the books based on the selected sorting option (title or author)
     const sorted = [...books].sort((a, b) => {
       if (sortValue === 'title') {
-        return a.title.localeCompare(b.title);
+        return (a.title || '').localeCompare(b.title || '');
       } else if (sortValue === 'author') {
-        return a.author.localeCompare(b.author);
+        return (a.author || '').localeCompare(b.author || '');
       }
       return 0;
     });
     setSortedBooks(sorted);
   }, [books, sortValue]);
+
 
 
   return (
